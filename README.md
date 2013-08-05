@@ -1,4 +1,6 @@
-emacs
+learn emacs just for no more endless "ESC"
 =====
 
-.emacs.d
+Emacs配置文件
+
+
