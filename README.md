@@ -1,6 +1,6 @@
 learn emacs just for no more endless "ESC"
 =====
 
-Emacsé…ç½®æ–‡ä»¶
+EmacsÅäÖÃÎÄ¼ş
 
 
