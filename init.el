@@ -1,11 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-;; ELPA
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-;; El-get
+;; Initialise el-get
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -16,10 +12,17 @@
 
 (setq
  el-get-packages
- '())
+ '(el-get
+   auto-complete
+   yasnippet
+   markdown-mode
+   color-theme-solarized
+   ))
 
 (el-get 'sync el-get-packages)
 
-;; Load custom scripts
-;;(require 'conf-basic)
-;;(require 'conf-theme)
+;; Load solarized dark theme
+(load-theme 'solarized-dark t)
+
+;; Load setting
+(require 'init-basic)

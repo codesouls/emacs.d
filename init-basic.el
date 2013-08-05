@@ -7,19 +7,12 @@
 (setq-default initial-scratch-message nil)
 (setq-default initial-major-mode 'emacs-lisp-mode)
 
-;; 隐藏工具栏和滚动条
-;(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;; 显示行号
+(global-linum-mode t)
 
 ;; 设置时间格式
 (setq-default display-time-24hr-format t)
 (setq-default display-time-day-and-date nil)
-
-;; Mark
-(setq-default transient-mark-mode t)
-(setq-default set-mark-command-repeat-pop t)
-(setq-default mark-ring-max 32)
 
 ;; 在状态栏显示行列号
 (setq-default line-number-mode t)
@@ -36,9 +29,6 @@
 (setq-default indent-tabs-mode nil)
 (setq x-stretch-cursor t)
 
-;; 每次卷动一行
-(setq-default scroll-conservatively 100)
-
 ;; 立即在回显区显示按键
 (setq-default echo-keystrokes -1)
 
@@ -48,14 +38,6 @@
 ;; 总是以一个换行符结束文件
 (setq-default require-final-newline t)
 
-;; isearch
-(setq isearch-allow-scroll t)
-(put 'view-lossage 'isearch-scroll t)
-
-;; 设置书签文件，Emacs 默认的位置是 ~/.emacs.bmk
-(setq-default bookmark-default-file "~/.emacs.d/.bookmark")
-(setq-default bookmark-save-flag 1) ; 立即保存书签
-
 ;; 由菜单修改配置的东西将会保存在 custom-file 里
 ;; 这里我设置在 ~/.emacs.d/.custom-file.el
 (setq-default custom-file "~/.emacs.d/.custom-file.el")
@@ -63,9 +45,12 @@
 
 ;; 备份设置
 (setq-default make-backup-file t)
-(setq-default version-control t)
-(setq-default backup-directory-alist '(("." . "~/.emacs.d/backup")))
-(setq-default delete-old-versions t)
+(setq version-control t)
+(setq kept-old-versions 2)
+(setq kept-new-versions 5)
+(setq delete-old-versions t)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup")))
+(setq backup-by-copying t)
 
 ;; 支持emacs和外部程序的粘贴
 (setq-default x-select-enable-clipboard t)
@@ -74,9 +59,6 @@
 (when (fboundp 'show-paren-mode)
   (show-paren-mode t)
   (setq-default show-paren-style 'parentheses))
-
-;; 设置一个大的 kill-ring
-(setq-default kill-ring-max 200)
 
 ;; 光标靠近时，鼠标不动
 (mouse-avoidance-mode 'none)
@@ -111,11 +93,6 @@
 ;; 提示文件结尾的空行
 (setq-default indicate-empty-lines 1)
 
-;; 不显示逻辑行
-(setq-default truncate-lines t)
-(setq-default truncate-partial-width-windows 200)
-(setq-default hscroll-step 5)
-
 ;; 取消原本不开启的命令
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -124,4 +101,4 @@
 (put 'narrow-to-page 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 
-(provide 'conf-basic)
+(provide 'init-basic)
