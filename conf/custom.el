@@ -1,3 +1,5 @@
+
+
 ;; 设置个人信息
 (setq user-full-name "Gao DaoJing")
 (setq user-mail-address "gaodaojing@gmail.com")
@@ -9,6 +11,9 @@
 
 ;; 显示行号
 (global-linum-mode t)
+
+;; 显示匹配的括号
+(show-paren-mode t)
 
 ;; 设置时间格式
 (setq-default display-time-24hr-format t)
@@ -101,4 +106,11 @@
 (put 'narrow-to-page 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 
-(provide 'init-basic)
+;; 字体配置
+(set-face-attribute
+  'default nil :font "Source Code Pro 12")
+
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+    charset
+    (font-spec :family "Microsoft YaHei" :size 14)))
