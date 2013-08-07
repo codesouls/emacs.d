@@ -33,10 +33,11 @@
         (append
           '(el-get
             autopair
-            auto-complete yasnippet
+            yasnippet auto-complete
             markdown-mode
-            color-theme color-theme-solarized color-theme-almost-monokai
-            coffee-mode
+            color-theme color-theme-solarized
+            css-mode js2-mode jshint-mode
+            slim-mode scss-mode coffee-mode
             ruby-mode inf-ruby ruby-compilation rhtml-mode yaml-mode ruby-end)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
