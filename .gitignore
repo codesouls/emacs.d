@@ -2,3 +2,4 @@
 /backup
 /el-get
 .custom-file.el
+*.elc
