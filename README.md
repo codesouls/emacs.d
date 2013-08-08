@@ -1,4 +1,6 @@
-learn emacs just for no more endless "ESC"
+my emacs config
 =====
 
-Emacs配置文件
+learn emacs
+
+just for another taste of mind!

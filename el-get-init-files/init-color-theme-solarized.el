@@ -1,2 +1,2 @@
 (when window-system
-      (color-theme-solarized-dark))
+      (color-theme-solarized-light))

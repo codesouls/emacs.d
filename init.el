@@ -8,6 +8,17 @@
 
 (add-to-list 'load-path "~/.emacs.d")
 
+;; Load setting {{{
+
+  (add-to-list 'load-path "~/.emacs.d/conf")
+
+  ;; basic
+  (load "basic")
+  ;; defun
+  (load "defun")
+
+;; }}}
+
 ;; Initialise el-get {{{
 
   (require 'package)
@@ -36,8 +47,9 @@
             yasnippet auto-complete
             markdown-mode
             color-theme color-theme-solarized
-            css-mode js2-mode jshint-mode
-            slim-mode scss-mode coffee-mode
+            slim-mode
+            css-mode sass-mode scss-mode
+            js2-mode jshint-mode coffee-mode
             ruby-mode inf-ruby ruby-compilation rhtml-mode yaml-mode ruby-end)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -45,14 +57,3 @@
   (el-get 'sync my-packages)
 
 ;; }}}
-
-;; Load setting {{{
-
-  (add-to-list 'load-path "~/.emacs.d/conf")
-
-  ;; custom setting
-  (load "custom")
-  ;; plugins setting
-  (load "plugins")
-
-;; }}

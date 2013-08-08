@@ -1,5 +1,3 @@
-
-
 ;; 设置个人信息
 (setq user-full-name "Gao DaoJing")
 (setq user-mail-address "gaodaojing@gmail.com")
@@ -44,7 +42,6 @@
 (setq-default require-final-newline t)
 
 ;; 由菜单修改配置的东西将会保存在 custom-file 里
-;; 这里我设置在 ~/.emacs.d/.custom-file.el
 (setq-default custom-file "~/.emacs.d/.custom-file.el")
 (if (file-exists-p custom-file) (load custom-file))
 

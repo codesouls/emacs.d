@@ -3,3 +3,4 @@
 /el-get
 .custom-file.el
 *.elc
+/*.dat
