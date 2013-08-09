@@ -46,7 +46,7 @@
             autopair
             yasnippet auto-complete
             markdown-mode
-            color-theme color-theme-solarized
+            color-theme color-theme-solarized color-theme-tomorrow powerline
             slim-mode
             css-mode sass-mode scss-mode
             js2-mode jshint-mode coffee-mode
