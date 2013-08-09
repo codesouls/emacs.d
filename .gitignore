@@ -1,6 +1,6 @@
 /auto-save-list
 /backup
-/el-get
+/elpa
 .custom-file.el
 *.elc
 /*.dat

@@ -19,41 +19,53 @@
 
 ;; }}}
 
-;; Initialise el-get {{{
+;; Initialise melpa {{{
 
   (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/") t)
   (package-initialize)
 
-  (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files/")
-  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+  ;; Work around MELPA server issues
+  (setq url-http-attempt-keepalives nil)
 
-  (unless (require 'el-get nil 'noerror)
-    (with-current-buffer
-      (url-retrieve-synchronously
-        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-      (let (el-get-master-branch)
-        (goto-char (point-max))
-        (eval-print-last-sexp))))
+  ;; Refreshing the MELPA repo
+  (when (not package-archive-contents)
+    (package-refresh-contents))
 
-  ;; personal recipes
-  (setq el-get-sources
-        '((:name el-get :branch "master")))
+  ;; Making sure melpa.el is around for the other installations
+  (unless (require 'melpa nil t)
+    (package-install 'melpa)
+    (require 'melpa))
 
-  ;; my package
-  (setq my-packages
-        (append
-          '(el-get
-            autopair
-            yasnippet auto-complete
-            markdown-mode
-            color-theme color-theme-solarized color-theme-tomorrow powerline
-            slim-mode
-            css-mode sass-mode scss-mode
-            js2-mode jshint-mode coffee-mode
-            ruby-mode inf-ruby ruby-compilation rhtml-mode yaml-mode ruby-end)
+  ;; Making sure my packages are installed
+  (defvar my-packages '(autopair
+                        yasnippet
+                        auto-complete
+                        markdown-mode
+                        color-theme-solarized
+                        powerline
+                        slim-mode
+                        css-mode
+                        sass-mode
+                        scss-mode
+                        js2-mode
+                        coffee-mode
+                        ruby-mode
+                        inf-ruby
+                        ruby-compilation
+                        rhtml-mode
+                        yaml-mode
+                        ruby-end)
+    "A list of packages to ensure are installed at launch.")
 
-         (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
+  (dolist (p my-packages)
+    (when (not (package-installed-p p))
+      (package-install p)))
 
-  (el-get 'sync my-packages)
+  (add-to-list 'load-path "~/.emacs.d/melpa-init-files")
+  (load "init-setup")
 
-;; }}}
+;;; }}}
