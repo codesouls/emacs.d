@@ -66,6 +66,6 @@
       (package-install p)))
 
   (add-to-list 'load-path "~/.emacs.d/melpa-init-files")
-  (load "setup")
+  (load "init-setup")
 
 ;;; }}}
