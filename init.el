@@ -24,7 +24,7 @@
   (require 'package)
   (package-initialize)
 
-  (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files/")
+  ;(setq el-get-user-package-directory "~/.emacs.d/el-get-init-files/")
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
   (unless (require 'el-get nil 'noerror)
@@ -43,17 +43,31 @@
   (setq my-packages
         (append
           '(el-get
+            org-mode
             autopair
-            yasnippet auto-complete
+            yasnippet
+            auto-complete
             markdown-mode
-            color-theme color-theme-solarized color-theme-tomorrow powerline
+            solarized-theme
             slim-mode
-            css-mode sass-mode scss-mode
-            js2-mode jshint-mode coffee-mode
-            ruby-mode inf-ruby ruby-compilation rhtml-mode yaml-mode ruby-end)
+            web-mode
+            sass-mode
+            scss-mode
+            js2-mode
+            jshint-mode
+            coffee-mode
+            ruby-mode
+            inf-ruby
+            ruby-compilation
+            rhtml-mode
+            yaml-mode
+            ruby-end
+            rinari)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
   (el-get 'sync my-packages)
 
+  ;; my packages setting
+  (load "plugin")
 ;; }}}
