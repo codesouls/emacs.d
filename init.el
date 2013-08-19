@@ -49,19 +49,18 @@
             auto-complete
             markdown-mode
             solarized-theme
-            slim-mode
+            tomorrow-theme
             web-mode
-            sass-mode
-            scss-mode
             js2-mode
             jshint-mode
-            coffee-mode
             ruby-mode
+            ruby-end
             inf-ruby
             ruby-compilation
-            rhtml-mode
+            slim-mode
             yaml-mode
-            ruby-end
+            scss-mode
+            coffee-mode
             rinari)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))

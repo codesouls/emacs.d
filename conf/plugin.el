@@ -1,5 +1,7 @@
 ;; theme
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
+;; (require 'color-theme-tomorrow)
+;; (color-theme-tomorrow--define-theme night-eighties)
 
 ;; autopair
 (require 'autopair)
@@ -52,3 +54,6 @@
 
 ;; rhtml
 (add-to-list 'auto-mode-alist '("\\.eco$" . rhtml-mode))
+
+;; rinari
+(global-rinari-mode)
