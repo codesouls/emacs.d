@@ -1,7 +1,7 @@
 ;; theme
-(load-theme 'solarized-dark t)
-;; (require 'color-theme-tomorrow)
-;; (color-theme-tomorrow--define-theme night-eighties)
+;; (load-theme 'solarized-dark t)
+(require 'color-theme-tomorrow)
+(color-theme-tomorrow--define-theme night-eighties)
 
 ;; autopair
 (require 'autopair)

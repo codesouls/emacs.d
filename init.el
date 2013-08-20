@@ -14,8 +14,10 @@
 
   ;; basic
   (load "basic")
-  ;; defun
+  ;; define function
   (load "defun")
+  ;; define keymap
+  (load "dekey")
 
 ;; }}}
 
@@ -50,6 +52,7 @@
             markdown-mode
             solarized-theme
             tomorrow-theme
+            powerline
             web-mode
             js2-mode
             jshint-mode
