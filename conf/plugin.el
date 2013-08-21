@@ -1,11 +1,20 @@
 ;; theme
-;; (load-theme 'solarized-dark t)
+;; (load-theme 'solarized-light t)
 (require 'color-theme-tomorrow)
 (color-theme-tomorrow--define-theme night-eighties)
 
 ;; autopair
 (require 'autopair)
 (autopair-global-mode)
+
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(define-prefix-command 'lwindow-map)
+(global-set-key (kbd "<M-up>") 'tabbar-backward-group)
+(global-set-key (kbd "<M-down>") 'tabbar-forward-group)
+(global-set-key (kbd "<M-left>") 'tabbar-backward)
+(global-set-key (kbd "<M-right>") 'tabbar-forward)
 
 ;; yasnippet
 (require 'yasnippet)

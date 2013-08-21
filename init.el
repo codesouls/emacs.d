@@ -47,6 +47,7 @@
           '(el-get
             org-mode
             autopair
+            tabbar
             yasnippet
             auto-complete
             markdown-mode
