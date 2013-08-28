@@ -1,20 +1,28 @@
 ;; theme
-;; (load-theme 'solarized-light t)
+;; (load-theme 'solarized-dark t)
 (require 'color-theme-tomorrow)
-(color-theme-tomorrow--define-theme night-eighties)
+(color-theme-tomorrow--define-theme night)
 
 ;; autopair
 (require 'autopair)
 (autopair-global-mode)
 
-;; tabbar
-(require 'tabbar)
-(tabbar-mode)
-(define-prefix-command 'lwindow-map)
+;; tabbar-ruler
+(setq tabbar-ruler-global-tabbar t) ; If you want tabbar
+(setq tabbar-ruler-global-ruler t) ; if you want a global ruler
+(require 'tabbar-ruler)
+
 (global-set-key (kbd "<M-up>") 'tabbar-backward-group)
 (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
 (global-set-key (kbd "<M-left>") 'tabbar-backward)
 (global-set-key (kbd "<M-right>") 'tabbar-forward)
+
+;; sr-speedbar
+(setq sr-speedbar-right-side nil)
+(setq speedbar-show-unknown-files t)
+(global-set-key (kbd "<f5>") (lambda()
+          (interactive)
+          (sr-speedbar-toggle)))
 
 ;; yasnippet
 (require 'yasnippet)

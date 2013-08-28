@@ -47,7 +47,8 @@
           '(el-get
             org-mode
             autopair
-            tabbar
+            tabbar-ruler
+            sr-speedbar
             yasnippet
             auto-complete
             markdown-mode
@@ -62,10 +63,12 @@
             inf-ruby
             ruby-compilation
             slim-mode
+            haml-mode
             yaml-mode
             scss-mode
             coffee-mode
-            rinari)
+            rinari
+            php-mode)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
