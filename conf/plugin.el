@@ -1,7 +1,7 @@
 ;; theme
 ;; (load-theme 'solarized-dark t)
 (require 'color-theme-tomorrow)
-(color-theme-tomorrow--define-theme night)
+(color-theme-tomorrow--define-theme night-eighties)
 
 ;; autopair
 (require 'autopair)
@@ -16,13 +16,6 @@
 (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
 (global-set-key (kbd "<M-left>") 'tabbar-backward)
 (global-set-key (kbd "<M-right>") 'tabbar-forward)
-
-;; sr-speedbar
-(setq sr-speedbar-right-side nil)
-(setq speedbar-show-unknown-files t)
-(global-set-key (kbd "<f5>") (lambda()
-          (interactive)
-          (sr-speedbar-toggle)))
 
 ;; yasnippet
 (require 'yasnippet)
@@ -46,7 +39,7 @@
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))

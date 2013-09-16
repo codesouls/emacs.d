@@ -30,7 +30,6 @@
 ;; 制表符
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
-(setq indent-line-function 'insert-tab)
 (setq x-stretch-cursor t)
 
 ;; 立即在回显区显示按键
