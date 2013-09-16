@@ -1,6 +1,6 @@
 ;; ===========================================
 ;; FileName: .emacs.d
-;; Author: Gao DaoJing (@fatteru)
+;; Author: Gao DaoJing (@Irvvin)
 ;; Email: gaodaojing@gmail.com
 ;; Site: http://gaodaojing.com
 ;; Version: 1.0
@@ -109,6 +109,9 @@
   ;; 提示文件结尾的空行
   (setq-default indicate-empty-lines 1)
 
+  ;; ibuffer
+  (defalias 'list-buffers 'ibuffer)
+
   ;; 取消原本不开启的命令
   (put 'narrow-to-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
@@ -126,6 +129,7 @@
                       charset
                       (font-spec :family "Microsoft YaHei" :size 14)))
 ;; }}}
+
 
 ;; Initialise el-get {{{
 
