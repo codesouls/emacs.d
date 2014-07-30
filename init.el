@@ -1,65 +1,72 @@
 ;; ===========================================
 ;; FileName: .emacs.d
-;; Author: Gao DaoJing (@Irvvin)
+;; Author: Gao DaoJing (@GAUDJ)
 ;; Email: gaodaojing@gmail.com
 ;; Site: http://gaodaojing.com
-;; Version: 1.0
+;; Version: 1.1
 ;; ===========================================
 
-(add-to-list 'load-path "~/.emacs.d")
+;; (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/conf")
 
 ;; Basic {{{
   ;; (load "basic")
 
-  ;; ÉèÖÃ¸öÈËĞÅÏ¢
-  (setq user-full-name "Gao DaoJing")
+  ;; è®¾ç½®ä¸ªäººä¿¡æ¯
+  (setq user-full-name "GAUDJ")
   (setq user-mail-address "gaodaojing@gmail.com")
 
-  ;; ³õÊ¼»¯ÉèÖÃ
+  ;; åˆå§‹åŒ–è®¾ç½®
   (setq-default inhibit-startup-screen t)
   (setq-default initial-scratch-message nil)
   (setq-default initial-major-mode 'emacs-lisp-mode)
 
-  ;; ÏÔÊ¾ĞĞºÅ
+  ;;ç¦ç”¨å·¥å…·æ 
+  (tool-bar-mode 0)
+
+  ;;ç¦ç”¨èœå•æ ï¼ŒF10 å¼€å¯å…³é—­èœå•
+  (menu-bar-mode 0)
+
+  ;; æ˜¾ç¤ºè¡Œå·
   (global-linum-mode t)
 
-  ;; ÏÔÊ¾Æ¥ÅäµÄÀ¨ºÅ
+  ;; æ˜¾ç¤ºåŒ¹é…çš„æ‹¬å·
   (show-paren-mode t)
 
-  ;; ÉèÖÃÊ±¼ä¸ñÊ½
+  ;; è®¾ç½®æ—¶é—´æ ¼å¼
+  (display-time-mode 1)
   (setq-default display-time-24hr-format t)
   (setq-default display-time-day-and-date nil)
 
-  ;; ÔÚ×´Ì¬À¸ÏÔÊ¾ĞĞÁĞºÅ
+  ;; åœ¨çŠ¶æ€æ æ˜¾ç¤ºè¡Œåˆ—å·
   (setq-default line-number-mode t)
   (setq-default column-number-mode t)
 
-  ;; ¹Ø±Õ·³ÈËµÄ³ö´íÊ±µÄÌáÊ¾Éù
+  ;; å…³é—­çƒ¦äººçš„å‡ºé”™æ—¶çš„æç¤ºå£°
   (setq-default visible-bell t)
 
-  ;; Ê¹ÓÃ "y/n" ´úÌæ "yes/no"
+  ;; ä½¿ç”¨ "y/n" ä»£æ›¿ "yes/no"
   (fset 'yes-or-no-p 'y-or-n-p)
 
-  ;; ÖÆ±í·û
+  ;; åˆ¶è¡¨ç¬¦
   (setq-default tab-width 2)
   (setq-default indent-tabs-mode nil)
   (setq x-stretch-cursor t)
 
-  ;; Á¢¼´ÔÚ»ØÏÔÇøÏÔÊ¾°´¼ü
+  ;; ç«‹å³åœ¨å›æ˜¾åŒºæ˜¾ç¤ºæŒ‰é”®
   (setq-default echo-keystrokes -1)
 
-  ;; ÔÚ±£´æÖ®Ç°É¾³ıĞĞÄ©¿Õ°×
+  ;; åœ¨ä¿å­˜ä¹‹å‰åˆ é™¤è¡Œæœ«ç©ºç™½
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-  ;; ×ÜÊÇÒÔÒ»¸ö»»ĞĞ·û½áÊøÎÄ¼ş
+  ;; æ€»æ˜¯ä»¥ä¸€ä¸ªæ¢è¡Œç¬¦ç»“æŸæ–‡ä»¶
   (setq-default require-final-newline t)
 
-  ;; ÓÉ²Ëµ¥ĞŞ¸ÄÅäÖÃµÄ¶«Î÷½«»á±£´æÔÚ custom-file Àï
+  ;; ç”±èœå•ä¿®æ”¹é…ç½®çš„ä¸œè¥¿å°†ä¼šä¿å­˜åœ¨ custom-file é‡Œ
   (setq-default custom-file "~/.emacs.d/.custom-file.el")
   (if (file-exists-p custom-file) (load custom-file))
 
-  ;; ±¸·İÉèÖÃ
+  ;; å¤‡ä»½è®¾ç½®
   (setq-default make-backup-file t)
   (setq version-control t)
   (setq kept-old-versions 2)
@@ -68,51 +75,51 @@
   (setq backup-directory-alist '(("." . "~/.emacs.d/backup")))
   (setq backup-by-copying t)
 
-  ;; Ö§³ÖemacsºÍÍâ²¿³ÌĞòµÄÕ³Ìù
+  ;; æ”¯æŒemacså’Œå¤–éƒ¨ç¨‹åºçš„ç²˜è´´
   (setq-default x-select-enable-clipboard t)
 
-  ;; À¨ºÅÆ¥ÅäÊ±ÏÔÊ¾ÁíÍâÒ»±ßµÄÀ¨ºÅ£¬¶ø²»ÊÇÌø×ªµ½ÁíÒ»¸öÀ¨ºÅ
+  ;; æ‹¬å·åŒ¹é…æ—¶æ˜¾ç¤ºå¦å¤–ä¸€è¾¹çš„æ‹¬å·ï¼Œè€Œä¸æ˜¯è·³è½¬åˆ°å¦ä¸€ä¸ªæ‹¬å·
   (when (fboundp 'show-paren-mode)
     (show-paren-mode t)
     (setq-default show-paren-style 'parentheses))
 
-  ;; ¹â±ê¿¿½üÊ±£¬Êó±ê²»¶¯
+  ;; å…‰æ ‡é è¿‘æ—¶ï¼Œé¼ æ ‡ä¸åŠ¨
   (mouse-avoidance-mode 'none)
 
-  ;; ½ûÖ¹¹â±êºÍÆÁÄ»ÉÁË¸
+  ;; ç¦æ­¢å…‰æ ‡å’Œå±å¹•é—ªçƒ
   (when (fboundp 'blink-cursor-mode)
     (blink-cursor-mode -1)
     (setq-default visible-bell nil))
 
-  ;; ²»ÒªÔÚÊó±êµã»÷µÄÄÇ¸öµØ·½²åÈë¼ôÌù°åÄÚÈİ
+  ;; ä¸è¦åœ¨é¼ æ ‡ç‚¹å‡»çš„é‚£ä¸ªåœ°æ–¹æ’å…¥å‰ªè´´æ¿å†…å®¹
   (setq-default mouse-yank-at-point t)
 
-  ;; µİ¹éÊ¹ÓÃ minibuffer
+  ;; é€’å½’ä½¿ç”¨ minibuffer
   (setq-default enable-recursive-minibuffers t)
 
-  ;; ÔÚ±êÌâÀ¸ÏÔÊ¾ buffer µÄÃû×Ö
+  ;; åœ¨æ ‡é¢˜æ æ˜¾ç¤º buffer çš„åå­—
   (setq-default frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  ;; ¼ÓÔØÄ¬ÈÏµÄ¿â£¬default.el
+  ;; åŠ è½½é»˜è®¤çš„åº“ï¼Œdefault.el
   (setq-default inhibit-default-init t)
 
-  ;; ²¢ÇÒÊ¹ text-mode Ã¿ 80 ¸ö×Ö·û×Ô¶¯Ëõ½ø
+  ;; å¹¶ä¸”ä½¿ text-mode æ¯ 80 ä¸ªå­—ç¬¦è‡ªåŠ¨ç¼©è¿›
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
   (setq-default fill-column 80)
 
-  ;; ±È½Ï²îÒìÎÄ¼şÊ±Æô¶¯ -u Ä£Ê½
+  ;; æ¯”è¾ƒå·®å¼‚æ–‡ä»¶æ—¶å¯åŠ¨ -u æ¨¡å¼
   (setq-default diff-switches "-u")
 
-  ;; ÏÔÊ¾ĞĞÎ²µÄ¿Õ°××Ö·û
+  ;; æ˜¾ç¤ºè¡Œå°¾çš„ç©ºç™½å­—ç¬¦
   (setq-default show-trailing-whitespace 1)
 
-  ;; ÌáÊ¾ÎÄ¼ş½áÎ²µÄ¿ÕĞĞ
+  ;; æç¤ºæ–‡ä»¶ç»“å°¾çš„ç©ºè¡Œ
   (setq-default indicate-empty-lines 1)
 
   ;; ibuffer
   (defalias 'list-buffers 'ibuffer)
 
-  ;; È¡ÏûÔ­±¾²»¿ªÆôµÄÃüÁî
+  ;; å–æ¶ˆåŸæœ¬ä¸å¼€å¯çš„å‘½ä»¤
   (put 'narrow-to-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
@@ -120,7 +127,7 @@
   (put 'narrow-to-page 'disabled nil)
   (put 'erase-buffer 'disabled nil)
 
-  ;; ×ÖÌåÅäÖÃ
+  ;; å­—ä½“é…ç½®
   (set-face-attribute
    'default nil :font "Source Code Pro 12")
 
@@ -156,25 +163,36 @@
         (append
           '(el-get
             org-mode
-            autopair
-            tabbar-ruler
-            yasnippet
-            auto-complete
-            markdown-mode
             solarized-theme
             tomorrow-theme
+            yasnippet
+            auto-complete
+            autopair
+            tabbar-ruler
+            ;; sr-speedbar
+
+            markdown-mode
+
             web-mode
+            slim-mode
             js2-mode
+            coffee-mode
             jshint-mode
+            json-mode
+            scss-mode
+            less-css-mode
+
+            go-mode
+            go-autocomplete
+
+            python-mode
+
             ruby-mode
             ruby-end
             inf-ruby
             ruby-compilation
-            slim-mode
-            haml-mode
             yaml-mode
-            scss-mode
-            coffee-mode
+            rvm
             rinari)
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -196,18 +214,13 @@
 
   ;; tabbar-ruler
   (setq tabbar-ruler-global-tabbar t) ; If you want tabbar
-  (setq tabbar-ruler-global-ruler t) ; if you want a global ruler
+  ;; (setq tabbar-ruler-global-ruler t) ; if you want a global ruler
   (require 'tabbar-ruler)
 
   (global-set-key (kbd "<M-up>") 'tabbar-backward-group)
   (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
   (global-set-key (kbd "<M-left>") 'tabbar-backward)
   (global-set-key (kbd "<M-right>") 'tabbar-forward)
-
-  ;; yasnippet
-  (require 'yasnippet)
-  (yas/global-mode 1)
-  (yas/minor-mode-on)
 
   ;; auto-complete
   (require 'auto-complete)
@@ -217,12 +230,31 @@
   (define-key ac-menu-map "\C-n" 'ac-next)
   (define-key ac-menu-map "\C-p" 'ac-previous)
 
-  (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
-                  sass-mode scss-mode yaml-mode csv-mode espresso-mode haskell-mode
-                  html-mode nxml-mode sh-mode smarty-mode clojure-mode
-                  lisp-mode textile-mode markdown-mode tuareg-mode
-                  js2-mode css-mode less-css-mode coffee-mode))
+  (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode
+                  go-mode python-mode ruby-mode
+                  html-mode js2-mode coffee-mode css-mode sass-mode scss-mode less-css-mode json-mode
+                  lisp-mode textile-mode markdown-mode yaml-mode))
    (add-to-list 'ac-modes mode))
+
+  ;; speedbar
+  ;; (require 'sr-speedbar)
+  ;; (setq sr-speedbar-right-side nil)
+  ;; (setq sr-speedbar-auto-refresh t)
+  ;; (setq sr-speedbar-max-width 40)
+  ;; (setq sr-speedbar-width 30)
+  (setq speedbar-show-unknown-files t)
+  ;; (setq dframe-update-speed t)
+  ;; (global-set-key (kbd "<f4>") (lambda()
+  ;;           (interactive)
+  ;;           (sr-speedbar-toggle)))
+  (global-set-key (kbd "<f4>") (lambda()
+            (interactive)
+            (speedbar)))
+
+  ;; yasnippet
+  (require 'yasnippet)
+  (yas/global-mode 1)
+  (yas/minor-mode-on)
 
   ;; web-mode
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -274,8 +306,8 @@
   ;; (load "defun")
 
   ;; {{{
-  ;; ĞŞ¸Ä"M-;"×¢ÊÍ·½Ê½
-  ;; ÔÚÃ»ÓĞ¼¤»îµÄÇøÓò£¬×¢ÊÍ/·´×¢ÊÍµ±Ç°ĞĞ£¬µ±ÔÚĞĞÎ²µÄÊ±ºò²ÅÔÚĞĞÎ²¼Ó×¢ÊÍ
+  ;; ä¿®æ”¹"M-;"æ³¨é‡Šæ–¹å¼
+  ;; åœ¨æ²¡æœ‰æ¿€æ´»çš„åŒºåŸŸï¼Œæ³¨é‡Š/åæ³¨é‡Šå½“å‰è¡Œï¼Œå½“åœ¨è¡Œå°¾çš„æ—¶å€™æ‰åœ¨è¡Œå°¾åŠ æ³¨é‡Š
   (defun emacs-comment-dwim-line (&optional arg)
     "Replacement for the comment-dwim command.
   If no region is selected and current line is not blank and we are not at the end of the line,
@@ -290,7 +322,7 @@
   ;; }}}
 
   ;; {{{
-  ;; ĞŞ¸Ä"Alt-w"£¬µ±Ã»ÓĞ¼¤»îµÄÇøÓòÊ±¾Í¸´ÖÆµ±Ç°ÕûĞĞ
+  ;; ä¿®æ”¹"Alt-w"ï¼Œå½“æ²¡æœ‰æ¿€æ´»çš„åŒºåŸŸæ—¶å°±å¤åˆ¶å½“å‰æ•´è¡Œ
   ;; Smart copy, if no region active, it simply copy the current whole line
   (defadvice kill-line (before check-position activate)
     (if (member major-mode
