@@ -1,9 +1,9 @@
 ;; ===========================================
 ;; FileName: .emacs.d
-;; Author: Gao DaoJing (@GAUDJ)
-;; Email: gaodaojing@gmail.com
+;; Author: DaoJing Gao(@Gaucs)
+;; Email: me@gaodaojing.com
 ;; Site: http://gaodaojing.com
-;; Version: 1.1
+;; Version: 1.2
 ;; ===========================================
 
 ;; (add-to-list 'load-path "~/.emacs.d")
@@ -13,8 +13,8 @@
   ;; (load "basic")
 
   ;; 设置个人信息
-  (setq user-full-name "GAUDJ")
-  (setq user-mail-address "gaodaojing@gmail.com")
+  (setq user-full-name "DaoJing Gao")
+  (setq user-mail-address "me@gaodaojing.com")
 
   ;; 初始化设置
   (setq-default inhibit-startup-screen t)
@@ -58,6 +58,12 @@
 
   ;; 在保存之前删除行末空白
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;;设置默认读入文件编码
+  (prefer-coding-system 'utf-8)
+
+  ;;设置写入文件编码
+  (setq default-buffer-file-coding-system 'utf-8)
 
   ;; 总是以一个换行符结束文件
   (setq-default require-final-newline t)
@@ -129,12 +135,12 @@
 
   ;; 字体配置
   (set-face-attribute
-   'default nil :font "Source Code Pro 12")
+   'default nil :font "Inconsolata 15")
 
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
-                      (font-spec :family "Microsoft YaHei" :size 14)))
+                      (font-spec :family "Microsoft YaHei" :size 15)))
 ;; }}}
 
 
@@ -163,37 +169,46 @@
         (append
           '(el-get
             org-mode
-            solarized-theme
             tomorrow-theme
-            yasnippet
             auto-complete
+            yasnippet
+            neotree
             autopair
             tabbar-ruler
-            ;; sr-speedbar
+            helm
 
             markdown-mode
 
             web-mode
-            slim-mode
+            ;; slim-mode
             js2-mode
             coffee-mode
             jshint-mode
             json-mode
-            scss-mode
+            ;; scss-mode
             less-css-mode
+
+            python
+            pyvenv
+            pymacs
+            rope
+            ropemacs
+            ropemode
+            py-autopep8
 
             go-mode
             go-autocomplete
 
-            python-mode
+            ;; rust-mode
 
-            ruby-mode
-            ruby-end
-            inf-ruby
-            ruby-compilation
-            yaml-mode
-            rvm
-            rinari)
+            ;; ruby-mode
+            ;; ruby-end
+            ;; inf-ruby
+            ;; ruby-compilation
+            ;; yaml-mode
+            ;; rvm
+            ;; rinari
+	    )
 
          (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
@@ -204,23 +219,8 @@
   ;; (load "plugin")
 
   ;; theme
-  ;; (load-theme 'solarized-dark t)
   (require 'color-theme-tomorrow)
   (color-theme-tomorrow--define-theme night-eighties)
-
-  ;; autopair
-  (require 'autopair)
-  (autopair-global-mode)
-
-  ;; tabbar-ruler
-  (setq tabbar-ruler-global-tabbar t) ; If you want tabbar
-  ;; (setq tabbar-ruler-global-ruler t) ; if you want a global ruler
-  (require 'tabbar-ruler)
-
-  (global-set-key (kbd "<M-up>") 'tabbar-backward-group)
-  (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
-  (global-set-key (kbd "<M-left>") 'tabbar-backward)
-  (global-set-key (kbd "<M-right>") 'tabbar-forward)
 
   ;; auto-complete
   (require 'auto-complete)
@@ -236,27 +236,35 @@
                   lisp-mode textile-mode markdown-mode yaml-mode))
    (add-to-list 'ac-modes mode))
 
-  ;; speedbar
-  ;; (require 'sr-speedbar)
-  ;; (setq sr-speedbar-right-side nil)
-  ;; (setq sr-speedbar-auto-refresh t)
-  ;; (setq sr-speedbar-max-width 40)
-  ;; (setq sr-speedbar-width 30)
-  (setq speedbar-show-unknown-files t)
-  ;; (setq dframe-update-speed t)
-  ;; (global-set-key (kbd "<f4>") (lambda()
-  ;;           (interactive)
-  ;;           (sr-speedbar-toggle)))
-  (global-set-key (kbd "<f4>") (lambda()
-            (interactive)
-            (speedbar)))
-
   ;; yasnippet
   (require 'yasnippet)
   (yas/global-mode 1)
   (yas/minor-mode-on)
 
+  ;; neotree
+  (require 'neotree)
+  (global-set-key [f4] 'neotree-toggle)
+
+  ;; autopair
+  (require 'autopair)
+  (autopair-global-mode)
+
+  ;; tabbar-ruler
+  (setq tabbar-ruler-global-tabbar t) ; If you want tabbar
+  ;; (setq tabbar-ruler-global-ruler t) ; if you want a global ruler
+  (require 'tabbar-ruler)
+
+  (global-set-key (kbd "<M-up>") 'tabbar-backward-group)
+  (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
+  (global-set-key (kbd "<M-left>") 'tabbar-backward)
+  (global-set-key (kbd "<M-right>") 'tabbar-forward)
+
+  ;; helm
+  (require 'helm-config)
+
   ;; web-mode
+  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
@@ -266,26 +274,37 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.ftl\\'" . web-mode))
 
-  ;; ruby-mode
-  (autoload 'ruby-mode "ruby-mode" nil t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-  (add-hook 'ruby-mode-hook '(lambda ()
-                               (setq ruby-deep-arglist t)
-                               (setq ruby-deep-indent-paren nil)
-                               (setq c-tab-always-indent nil)
-                               (require 'inf-ruby)
-                               (require 'ruby-compilation)))
+  ;; pymacs
+  (require 'pymacs)
 
-  ;; rhtml
-  (add-to-list 'auto-mode-alist '("\\.eco$" . rhtml-mode))
+  ;; Rope
+  (pymacs-load "ropemacs" "rope-")
+  (setq ropemacs-enable-autoimport t)
 
-  ;; rinari
-  (global-rinari-mode)
+  ;; pep8
+  (require 'py-autopep8)
+  (add-hook 'before-save-hook 'py-autopep8-before-save)
+
+  ;; ;; ruby-mode
+  ;; (autoload 'ruby-mode "ruby-mode" nil t)
+  ;; (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+  ;; (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+  ;; (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+  ;; (add-hook 'ruby-mode-hook '(lambda ()
+  ;;                              (setq ruby-deep-arglist t)
+  ;;                              (setq ruby-deep-indent-paren nil)
+  ;;                              (setq c-tab-always-indent nil)
+  ;;                              (require 'inf-ruby)
+  ;;                              (require 'ruby-compilation)))
+
+  ;; ;; rhtml
+  ;; (add-to-list 'auto-mode-alist '("\\.eco$" . rhtml-mode))
+
+  ;; ;; rinari
+  ;; (global-rinari-mode)
 
 ;; }}}
 
@@ -298,6 +317,88 @@
 
   ;; set goto-line
   (define-key ctl-x-map "l" 'goto-line)
+
+  ;; org-mode
+  (setq org-export-date-timestamp-format "%Y-%m-%d")
+
+  (setq org-publish-project-alist
+           '(("orgblog"
+               :base-directory "~/Dropbox/Blog/org/"
+               :base-extension "org"
+               :publishing-directory "~/Dropbox/Blog/html/"
+               ;; :publishing-directory "/ssh:root@gaodaojing.com:/data/wwwroot/gaodaojing.com/"
+               :publishing-function org-html-publish-to-html
+               :headline-levels 4
+               :section-numbers nil
+               :with-toc nil
+               :auto-sitemap t
+               :sitemap-filename "sitemap.org"
+               :sitemap-title "Archive" ;
+               :sitemap-sort-files chronologically
+               :sitemap-sort-folders last
+               :sitemap-file-entry-format "「%d」 -  %t"
+               :makeindex t
+               :author "Gaucs"
+               :email "me@gaodaojing.com"
+               :language "zh_CN"
+               :html-doctype "html5"
+               :html-head "<link rel=\"stylesheet\" href=\"assets/styles/style.css\" type=\"text/css\"/>"
+               :html-preamble "
+<div id=\"header\">
+  <div class=\"container\">
+    <h1 id=\"brand\"><a href=\"/\">浮世</a></h1>
+    <nav id=\"nav\" role=\"navigation\">
+      <a href=\"/\">Home</a>
+      <a href=\"/archive.html\">Archive</a>
+      <a href=\"/about.html\">About</a>
+    </nav>
+  </div>
+</div>"
+               :html-postamble "
+  <div id=\"post_meta\">
+    <p class=\"date\">Last Updated: %d</p>
+  </div>
+  <div id=\"post_discuss\">
+    <div id=\"disqus_thread\"></div>
+  </div>
+  <script type=\"text/javascript\">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'gaucs'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>
+  <div id=\"footer\"><p class=\"copyright\">Powered by Emacs & Org mode</p></div>
+               "
+               :html-head-include-default-style nil
+               :html-head-include-scripts nil)
+
+              ("images"
+               :base-directory "~/Dropbox/Blog/assets/images/"
+               :base-extension "jpg\\|gif\\|png"
+               :publishing-directory "~/Dropbox/Blog/html/assets/images/"
+               ;; :publishing-directory "/ssh:root@gaodaojing.com:/data/wwwroot/gaodaojing.com/images/"
+               :publishing-function org-publish-attachment)
+
+              ("styles"
+               :base-directory "~/Dropbox/Blog/assets/styles/"
+               :base-extension "css"
+               :publishing-directory "~/Dropbox/Blog/html/assets/styles/"
+               ;; :publishing-directory "/ssh:root@gaodaojing.com:/data/wwwroot/gaodaojing.com/styles/"
+               :publishing-function org-publish-attachment)
+
+              ("scripts"
+               :base-directory "~/Dropbox/Blog/assets/scripts/"
+               :base-extension "js"
+               :publishing-directory "~/Dropbox/Blog/html/assets/scripts/"
+               ;; :publishing-directory "/ssh:root@gaodaojing.com:/data/wwwroot/gaodaojing.com/scripts/"
+               :publishing-function org-publish-attachment)
+              ("website" :components ("orgblog" "images" "styles" "scripts"))))
 
 ;; }}}
 
