@@ -222,8 +222,7 @@
 
   ;; yasnippet
   (require 'yasnippet)
-  (yas/global-mode 1)
-  (yas/minor-mode-on)
+  (yas-global-mode 1)
 
   ;; neotree
   (require 'neotree)
@@ -282,6 +281,8 @@
 
   ;; projectile
   (projectile-global-mode)
+  (setq projectile-mode-line
+        '(:eval (format " Proj[%s]" (projectile-project-name))))
 
 ;; }}}
 

@@ -4,3 +4,4 @@
 .custom-file.el
 *.elc
 /*.dat
+/projectile-bookmarks.eld
