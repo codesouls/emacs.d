@@ -1,5 +1,7 @@
+*.elc
+*.cask
+*.dat
+
 /auto-save-list
 /backup
 /elpa
-*.elc
-/*.dat

@@ -24,7 +24,6 @@
 
 (add-hook 'web-mode-hook  'web-mode-hook)
 
-
 ;; css-mode
 (setq css-indent-offset 2)
 
@@ -32,5 +31,6 @@
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
+
 
 (provide 'init-web)

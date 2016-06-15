@@ -32,6 +32,7 @@
 
 (require 'init-web)
 (require 'init-javascript)
+(require 'init-python)
 (require 'init-clojure)
 (require 'init-rust)
 

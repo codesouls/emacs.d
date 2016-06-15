@@ -1,14 +1,10 @@
-﻿;; init-elpa.el
+﻿(require 'package)
 
-(require 'package)
-
-;; (add-to-list 'package-archives
-;;            '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-          '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t)
+             '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; On-demand installation of packages
 (defun require-package (package &optional min-version no-refresh)

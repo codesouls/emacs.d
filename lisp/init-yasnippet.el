@@ -1,11 +1,9 @@
 (require-package 'yasnippet)
 
-;; (setq yas-snippet-dirs
-;;       '("~/.emacs.d/lisp/snippets"
-;;         "~/.emacs.d/el-get/yasnippet/yasmate/snippets"
-;;         "~/.emacs.d/el-get/yasnippet/snippets"
-;;         ))
+;; (add-to-list 'load-path
+;;               "~/.emacs.d/yasnippet")
 
 (yas-global-mode 1)
+
 
 (provide 'init-yasnippet)

@@ -1,3 +1,4 @@
-;; (require-package 'clojure-mode)
+(require-package 'clojure-mode)
+
 
 (provide 'init-clojure)

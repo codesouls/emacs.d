@@ -5,6 +5,4 @@
 (define-key ctl-x-map "l" 'goto-line)
 
 
-(provide 'init-keys)
-
 (provide 'init-keybindings)
