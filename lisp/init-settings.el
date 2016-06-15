@@ -1,19 +1,29 @@
-;; 设置个人信息
-(setq user-full-name "Gao DaoJing")
-(setq user-mail-address "gaodaojing@gmail.com")
+﻿;; 设置个人信息
+(setq user-full-name "da07ng")
+(setq user-mail-address "me@gaodaojing.com")
 
 ;; 初始化设置
 (setq-default inhibit-startup-screen t)
 (setq-default initial-scratch-message nil)
 (setq-default initial-major-mode 'emacs-lisp-mode)
 
+;;禁用工具栏
+(tool-bar-mode 0)
+
+;;禁用菜单栏，F10 开启关闭菜单
+(menu-bar-mode 0)
+
 ;; 显示行号
 (global-linum-mode t)
+
+;; 高亮当前行
+(global-hl-line-mode 1)
 
 ;; 显示匹配的括号
 (show-paren-mode t)
 
 ;; 设置时间格式
+(display-time-mode 1)
 (setq-default display-time-24hr-format t)
 (setq-default display-time-day-and-date nil)
 
@@ -29,8 +39,8 @@
 
 ;; 制表符
 (setq-default tab-width 2)
+(setq-default c-basic-offset 2)
 (setq-default indent-tabs-mode nil)
-(setq indent-line-function 'insert-tab)
 (setq x-stretch-cursor t)
 
 ;; 立即在回显区显示按键
@@ -39,11 +49,17 @@
 ;; 在保存之前删除行末空白
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;;设置默认读入文件编码
+(prefer-coding-system 'utf-8)
+
+;;设置写入文件编码
+(setq default-buffer-file-coding-system 'utf-8)
+
 ;; 总是以一个换行符结束文件
 (setq-default require-final-newline t)
 
 ;; 由菜单修改配置的东西将会保存在 custom-file 里
-(setq-default custom-file "~/.emacs.d/.custom-file.el")
+(setq-default custom-file "~/.emacs.d/custom.el")
 (if (file-exists-p custom-file) (load custom-file))
 
 ;; 备份设置
@@ -86,6 +102,7 @@
 ;; 并且使 text-mode 每 80 个字符自动缩进
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (setq-default fill-column 80)
+;; (setq-default auto-fill-function 'do-auto-fill)
 
 ;; 比较差异文件时启动 -u 模式
 (setq-default diff-switches "-u")
@@ -95,6 +112,9 @@
 
 ;; 提示文件结尾的空行
 (setq-default indicate-empty-lines 1)
+
+;; ibuffer
+(defalias 'list-buffers 'ibuffer)
 
 ;; 取消原本不开启的命令
 (put 'narrow-to-region 'disabled nil)
@@ -106,9 +126,12 @@
 
 ;; 字体配置
 (set-face-attribute
-  'default nil :font "Source Code Pro 12")
+ 'default nil :font "Source Code Pro 11")
 
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
-    charset
-    (font-spec :family "Microsoft YaHei" :size 14)))
+                    charset
+                    (font-spec :family "Microsoft YaHei" :size 15)))
+
+
+(provide 'init-settings)
