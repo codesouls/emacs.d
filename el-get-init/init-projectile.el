@@ -2,4 +2,4 @@
 
 (projectile-global-mode)
 (setq projectile-mode-line
-      '(:eval (format " Proj[%s]" (projectile-project-name))))
+      '(:eval (format " PJ[%s]" (projectile-project-name))))

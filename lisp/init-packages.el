@@ -15,23 +15,24 @@
 (setq my-packages
       (append
        '(el-get
-         ;; org-mode
-         tomorrow-theme
-         ;; auto-complete
          company-mode
          company-tern
          yasnippet
-         autopair
+         helm
+         projectile
+         helm-projectile
+         neotree
+         ;; org-mode
+         which-key
+
+         color-theme-sanityinc-tomorrow
          powerline
          ;; tabbar-ruler
          window-numbering
-         magit
-         helm
-         neotree
-         projectile
-         helm-projectile
 
-         flymake
+         magit
+
+         flycheck
 
          markdown-mode
 
