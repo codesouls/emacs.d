@@ -1,5 +1,6 @@
+;;; projectile.el --- Project management
+
 (require-package 'projectile)
-(require-package 'helm-projectile)
 
 (projectile-global-mode)
 (setq projectile-mode-line

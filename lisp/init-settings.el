@@ -1,4 +1,6 @@
-﻿;; 设置个人信息
+﻿;;; settings.el --- Common setting
+
+;; 设置个人信息
 (setq user-full-name "da07ng")
 (setq user-mail-address "me@gaodaojing.com")
 

@@ -1,4 +1,6 @@
-﻿;; 修改"M-;"注释方式
+﻿;;; defuns.el --- Misc functions
+
+;; 修改"M-;"注释方式
 ;; 在没有激活的区域，注释/反注释当前行，当在行尾的时候才在行尾加注释
 (defun emacs-comment-dwim-line (&optional arg)
   "Replacement for the comment-dwim command.
@@ -49,4 +51,4 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
 
-(provide 'init-funcs)
+(provide 'init-defuncs)

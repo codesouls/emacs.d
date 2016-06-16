@@ -1,3 +1,5 @@
+;;; magit.el --- Git config
+
 (require-package 'magit)
 
 (global-set-key (kbd "C-x g") 'magit-status)

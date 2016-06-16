@@ -1,3 +1,5 @@
+;;; powerline.el --- Powerline config
+
 (require-package 'powerline)
 
 ;; (powerline-default-theme)

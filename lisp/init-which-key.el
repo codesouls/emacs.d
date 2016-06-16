@@ -1,3 +1,5 @@
+;;; which-key.el --- Which-key config
+
 (require-package 'which-key)
 
 

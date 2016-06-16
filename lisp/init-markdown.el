@@ -1,3 +1,5 @@
+;;; markdown.el --- Markdown config
+
 (require-package 'markdown-mode)
 
 (autoload 'markdown-mode "markdown-mode"

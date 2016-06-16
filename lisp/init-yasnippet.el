@@ -1,3 +1,5 @@
+ ;;; yasnippet --- Yasnippet config
+
 (require-package 'yasnippet)
 
 ;; (add-to-list 'load-path

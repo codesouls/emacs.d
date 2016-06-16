@@ -1,8 +1,8 @@
-(require-package 'web-mode)
-(require-package 'scss-mode)
-(require-package 'emmet-mode)
+;;; web.el --- Web develop config
 
 ;; web-mode
+(require-package 'web-mode)
+
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
@@ -24,10 +24,14 @@
 
 (add-hook 'web-mode-hook  'web-mode-hook)
 
-;; css-mode
+;; scss-mode
+(require-package 'scss-mode)
+
 (setq css-indent-offset 2)
 
 ;; emmet-mode
+(require-package 'emmet-mode)
+
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)

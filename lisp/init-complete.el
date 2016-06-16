@@ -1,11 +1,14 @@
+;;; complete.el --- Auto completion
+
 (require-package 'company)
-(require-package 'company-tern)
 
 (require 'company)
-
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; javascript
+(require-package 'company-tern)
 
 (add-to-list 'company-backends 'company-tern)
 
 
-(provide 'init-company)
+(provide 'init-complete)
