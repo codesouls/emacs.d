@@ -16,13 +16,14 @@
 (menu-bar-mode 0)
 
 ;; 显示行号
-(global-linum-mode t)
+(global-linum-mode 1)
 
 ;; 高亮当前行
 (global-hl-line-mode 1)
 
-;; 显示匹配的括号
-(show-paren-mode t)
+;; 显示匹配
+(show-paren-mode 1)
+(electric-pair-mode 1)
 
 ;; 设置时间格式
 (display-time-mode 1)
@@ -30,8 +31,8 @@
 (setq-default display-time-day-and-date nil)
 
 ;; 在状态栏显示行列号
-(setq-default line-number-mode t)
-(setq-default column-number-mode t)
+(line-number-mode 1)
+(column-number-mode 1)
 
 ;; 关闭烦人的出错时的提示声
 (setq-default visible-bell t)
@@ -51,11 +52,10 @@
 ;; 在保存之前删除行末空白
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;设置默认读入文件编码
+;;设置文件编码
 (prefer-coding-system 'utf-8)
-
-;;设置写入文件编码
-(setq default-buffer-file-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
 
 ;; 总是以一个换行符结束文件
 (setq-default require-final-newline t)
@@ -75,11 +75,6 @@
 
 ;; 支持emacs和外部程序的粘贴
 (setq-default x-select-enable-clipboard t)
-
-;; 括号匹配时显示另外一边的括号，而不是跳转到另一个括号
-(when (fboundp 'show-paren-mode)
-  (show-paren-mode t)
-  (setq-default show-paren-style 'parentheses))
 
 ;; 光标靠近时，鼠标不动
 (mouse-avoidance-mode 'none)

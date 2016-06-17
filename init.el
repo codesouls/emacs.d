@@ -52,6 +52,7 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-powerline)
 (require 'init-neotree)
 (require 'init-window-numbering)
+(require 'init-undo-tree)
 
 (require 'init-magit)
 (require 'init-flycheck)
