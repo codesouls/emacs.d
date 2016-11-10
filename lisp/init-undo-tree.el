@@ -1,4 +1,4 @@
-;;; undo-tree.el --- Undo-tree config
+;;; init-undo-tree.el --- Undo-tree config
 
 (require-package 'undo-tree)
 

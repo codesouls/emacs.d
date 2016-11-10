@@ -1,4 +1,4 @@
-;;; web.el --- Web develop config
+;;; init-web.el --- Web develop config
 
 ;; web-mode
 (require-package 'web-mode)
@@ -8,6 +8,7 @@
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 (defun web-mode-hook ()
   (progn
@@ -15,8 +16,8 @@
     (setq web-mode-css-indent-offset 2)
     (setq web-mode-code-indent-offset 2)
 
-    (setq web-mode-style-padding 1)
-    (setq web-mode-script-padding 1)
+    (setq web-mode-style-padding 2)
+    (setq web-mode-script-padding 2)
     (setq web-mode-block-padding 0)
     (local-unset-key (kbd "C-;"))
     )

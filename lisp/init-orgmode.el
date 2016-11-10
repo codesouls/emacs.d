@@ -1,4 +1,4 @@
-;;; orgmode.el --- Org mode config
+;;; init-orgmode.el --- Org mode config
 
 (require-package 'org-plus-contrib)
 

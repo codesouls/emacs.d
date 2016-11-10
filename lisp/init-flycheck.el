@@ -1,4 +1,4 @@
-;;; flycheck.el --- Flycheck config
+;;; init-flycheck.el --- Flycheck config
 
 (require-package 'flycheck)
 
@@ -6,5 +6,6 @@
 
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
+
 
 (provide 'init-flycheck)

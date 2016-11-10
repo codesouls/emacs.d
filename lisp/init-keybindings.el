@@ -1,4 +1,4 @@
-;;; keybindings.el --- Keybindings customise
+;;; init-keybindings.el --- Keybindings customise
 
 ;; set mark keymap
 (global-set-key (kbd "M-SPC") 'set-mark-command)

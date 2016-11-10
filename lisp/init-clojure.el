@@ -1,4 +1,4 @@
-;;; clojure.el --- Clojure config
+;;; init-clojure.el --- Clojure config
 
 (require-package 'clojure-mode)
 

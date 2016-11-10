@@ -1,4 +1,4 @@
-;;; markdown.el --- Markdown config
+;;; init-markdown.el --- Markdown config
 
 (require-package 'markdown-mode)
 

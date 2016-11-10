@@ -1,4 +1,4 @@
-;;; window-numbering.el --- Window-numbering config
+;;; init-window-numbering.el --- Window-numbering config
 
 (require-package 'window-numbering)
 

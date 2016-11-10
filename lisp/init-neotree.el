@@ -1,4 +1,4 @@
-;;; neotree.el --- Neotree config
+;;; init-neotree.el --- Neotree config
 
 (require-package 'neotree)
 

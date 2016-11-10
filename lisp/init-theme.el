@@ -1,4 +1,4 @@
-;;; theme.el --- Theme config
+;;; init-theme.el --- Theme config
 
 (require-package 'color-theme-sanityinc-tomorrow)
 

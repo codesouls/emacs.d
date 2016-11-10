@@ -1,4 +1,4 @@
-﻿;;; settings.el --- Common setting
+﻿;;; init-settings.el --- Common setting
 
 ;; 设置个人信息
 (setq user-full-name "da07ng")
@@ -12,7 +12,7 @@
 ;;禁用工具栏
 (tool-bar-mode 0)
 
-;;禁用菜单栏，F10 开启关闭菜单
+;;禁用菜单栏
 (menu-bar-mode 0)
 
 ;; 显示行号
@@ -26,9 +26,9 @@
 (electric-pair-mode 1)
 
 ;; 设置时间格式
-(display-time-mode 1)
-(setq-default display-time-24hr-format t)
-(setq-default display-time-day-and-date nil)
+;; (display-time-mode 1)
+;; (setq-default display-time-24hr-format t)
+;; (setq-default display-time-day-and-date nil)
 
 ;; 在状态栏显示行列号
 (line-number-mode 1)
@@ -60,15 +60,11 @@
 ;; 总是以一个换行符结束文件
 (setq-default require-final-newline t)
 
-;; 由菜单修改配置的东西将会保存在 custom-file 里
-(setq-default custom-file "~/.emacs.d/custom.el")
-(if (file-exists-p custom-file) (load custom-file))
-
 ;; 备份设置
-(setq-default make-backup-file t)
+(setq-default make-backup-file nil)
 (setq version-control t)
 (setq kept-old-versions 2)
-(setq kept-new-versions 5)
+(setq kept-new-versions 1)
 (setq delete-old-versions t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup")))
 (setq backup-by-copying t)

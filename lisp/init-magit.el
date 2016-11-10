@@ -1,4 +1,4 @@
-;;; magit.el --- Git config
+;;; init-magit.el --- Git config
 
 (require-package 'magit)
 

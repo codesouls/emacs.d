@@ -1,4 +1,4 @@
-;;; helm.el --- Helm config
+;;; init-helm.el --- Helm config
 
 (require-package 'helm)
 

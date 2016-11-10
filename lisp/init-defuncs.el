@@ -1,4 +1,4 @@
-﻿;;; defuns.el --- Misc functions
+﻿;;; init-defuns.el --- Misc functions
 
 ;; 修改"M-;"注释方式
 ;; 在没有激活的区域，注释/反注释当前行，当在行尾的时候才在行尾加注释

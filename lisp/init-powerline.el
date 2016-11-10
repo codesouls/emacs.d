@@ -1,4 +1,4 @@
-;;; powerline.el --- Powerline config
+;;; init-powerline.el --- Powerline config
 
 (require-package 'powerline)
 
