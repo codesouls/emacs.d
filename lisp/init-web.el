@@ -25,8 +25,15 @@
 
 (add-hook 'web-mode-hook  'web-mode-hook)
 
+;; rainbow-mode
+(require-package 'rainbow-mode)
+
+(add-hook 'css-mode-hook 'rainbow-mode)
+(add-hook 'sass-mode-hook 'rainbow-mode)
+
 ;; scss-mode
-(require-package 'scss-mode)
+;; (require-package 'sass-mode)
+;; (require-package 'scss-mode)
 
 (setq css-indent-offset 2)
 
